@@ -1,0 +1,66 @@
+%% Preambulo, paquetes a cargar por compilador latex
+\documentclass[12pt]{beamer}
+\mode<presentation>{
+  % selección de tema y color
+  \usetheme{Copenhagen}
+  \usecolortheme{orchid}
+}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[font=scriptsize,labelfont=bf]{caption}
+\usepackage{verbatim}
+\usepackage{url} 
+\usepackage[export]{adjustbox}
+\usepackage{listings}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usepackage{cclicenses}
+\usepackage{multicol}
+\usepackage{ulem}
+\newcommand{\soutthick}[1]{%
+  \renewcommand{\ULthickness}{1.8pt}%
+    \sout{#1}%
+  \renewcommand{\ULthickness}{.4pt}% Resetting to ulem default
+}
+\usepackage[autostyle]{csquotes}
+\lstdefinestyle{mystyle}{
+  basicstyle=\tiny,
+  language=Python
+}
+\lstset{style=mystyle}
+
+%% Automatizar localización de las imágenes
+\graphicspath{{../img/}}
+
+\title{Qué es un programador ágil}
+\author[Pepe Doval]{Pepe Doval}
+\institute[SetPay | Agile Galicia]{SetPay | Agile Galicia}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+  \begin{tcolorbox}[]
+    \centering
+    {\small \bysa}\\
+    {\tiny Esta obra está suxeita á licencia
+      Recoñecemento-CompartirIgual 4.0 Internacional de Creative
+      Commons. Para ver unha copia desta licencia, visite
+      http://creativecommons.org/licenses/by-sa/4.0/.}
+  \end{tcolorbox}
+\end{frame}
+
+\usebackgroundtemplate{%
+  \tikz[overlay,remember picture] 
+  \node[opacity=0.3 , at=(current page.south east),anchor=south east] {
+    \includegraphics[]{fondo}};
+}
+
+\input{intro_agile.tex}               % introducción a agile
+\input{practicas.tex}                 % prácticas del programador ágil
+
+\end{document}
